@@ -19,9 +19,11 @@ This API evaluates leads against products/offers and assigns intent scores (High
 - **Error Handling**: Comprehensive validation and error reporting
 - **Documentation**: Complete API documentation with examples
 
-## 🚀 Quick Start
+## 🚀 Live API
 
-### 1. Setup Environment
+**🌐 Deployed API URL:** https://ai-lead-scoring.onrender.com/
+
+### Local Development Setup
 
 ```bash
 # Create virtual environment
@@ -35,29 +37,20 @@ pip install -r requirements.txt
 # Setup environment variables
 cp .env.example .env
 # Edit .env with your OpenAI API key
-```
 
-### 2. Database Setup
-
-```bash
 # Run migrations
 python manage.py migrate
 
-# Create admin user (optional)
-python manage.py createsuperuser
-```
-
-### 3. Start Server
-
-```bash
+# Start development server
 python manage.py runserver
 ```
 
-API will be available at `http://127.0.0.1:8000/`
+Local API will be available at `http://127.0.0.1:8000/`
 
 ## 📚 API Endpoints
 
-### Base URL: `http://127.0.0.1:8000/`
+### Base URL: `https://ai-lead-scoring.onrender.com/`
+### Local Development: `http://127.0.0.1:8000/`
 
 ### 1. **GET /** - API Status
 Health check and endpoint information.
