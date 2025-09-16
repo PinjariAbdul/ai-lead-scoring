@@ -4,7 +4,7 @@ import json
 
 
 class Offer(models.Model):
-    """Model to store product/offer information"""
+    # Store product/offer details
     name = models.CharField(max_length=255)
     value_props = models.JSONField(help_text="List of value propositions")
     ideal_use_cases = models.JSONField(help_text="List of ideal use cases/industries")
@@ -19,7 +19,7 @@ class Offer(models.Model):
 
 
 class Lead(models.Model):
-    """Model to store lead information"""
+    # Lead information from CSV uploads
     name = models.CharField(max_length=255)
     role = models.CharField(max_length=255, blank=True)
     company = models.CharField(max_length=255, blank=True)

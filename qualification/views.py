@@ -17,7 +17,7 @@ from .services import ScoringService
 
 
 class OfferCreateView(APIView):
-    """POST /offer - Accept JSON with product/offer details"""
+    # Create new offers - POST /offer
     
     def post(self, request):
         serializer = OfferSerializer(data=request.data)
