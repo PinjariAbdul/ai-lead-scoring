@@ -21,7 +21,39 @@ This API evaluates leads against products/offers and assigns intent scores (High
 
 ## 🚀 Live API
 
-**🌐 Deployed API URL:** https://ai-lead-scoring.onrender.com/
+**🌐 Live API Base URL:** https://ai-lead-scoring.onrender.com/
+
+### 🧪 Quick Testing
+
+Test the API instantly in your browser or with these commands:
+
+**Browser Test:** Visit https://ai-lead-scoring.onrender.com/
+
+**PowerShell Test:**
+```powershell
+Invoke-RestMethod -Uri "https://ai-lead-scoring.onrender.com/" -Method GET
+```
+
+**cURL Test:**
+```bash
+curl https://ai-lead-scoring.onrender.com/
+```
+
+**Expected Response:**
+```json
+{
+  "status": "healthy",
+  "service": "Lead Qualification API",
+  "version": "1.0.0",
+  "endpoints": {
+    "POST /offer": "Create product/offer",
+    "POST /leads/upload": "Upload leads CSV",
+    "POST /score": "Score leads",
+    "GET /results": "Get scored results",
+    "GET /results/export": "Export results as CSV"
+  }
+}
+```
 
 ### Local Development Setup
 
@@ -49,8 +81,8 @@ Local API will be available at `http://127.0.0.1:8000/`
 
 ## 📚 API Endpoints
 
-### Base URL: `https://ai-lead-scoring.onrender.com/`
-### Local Development: `http://127.0.0.1:8000/`
+### 🌐 Live API Base URL: `https://ai-lead-scoring.onrender.com/`
+### 💻 Local Development: `http://127.0.0.1:8000/`
 
 ### 1. **GET /** - API Status
 Health check and endpoint information.
@@ -269,6 +301,60 @@ name,role,company,industry,location,linkedin_bio
 Ava Patel,Head of Growth,FlowMetrics,SaaS,San Francisco,VP of Growth at FlowMetrics focused on scaling B2B SaaS companies
 John Smith,CTO,TechCorp,Technology,New York,Chief Technology Officer with 10+ years in enterprise software development
 Sarah Johnson,Marketing Manager,StartupCo,Software,Austin,Digital marketing specialist helping SaaS companies grow their user base
+```
+
+## 🧪 Complete Testing Guide
+
+### 1. Quick Status Check
+
+**Live API Status:**
+```bash
+# Browser: Visit https://ai-lead-scoring.onrender.com/
+# PowerShell:
+Invoke-RestMethod -Uri "https://ai-lead-scoring.onrender.com/" -Method GET
+# cURL:
+curl https://ai-lead-scoring.onrender.com/
+```
+
+### 2. Full API Testing
+
+**Automated Testing (Recommended):**
+```bash
+# Run the comprehensive test suite
+python test_api.py
+```
+
+**Manual Testing Examples:**
+
+```bash
+# 1. Create an offer
+curl -X POST https://ai-lead-scoring.onrender.com/offer/ \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "AI Sales Tool",
+    "value_props": ["Automate outreach", "Increase meetings"],
+    "ideal_use_cases": ["B2B SaaS companies"]
+  }'
+
+# 2. Upload leads (using sample file)
+# Visit the API docs or use the test_api.py script
+
+# 3. Score leads
+curl -X POST https://ai-lead-scoring.onrender.com/score/ \
+  -H "Content-Type: application/json" \
+  -d '{"offer_id": 1}'
+
+# 4. Get results
+curl https://ai-lead-scoring.onrender.com/results/
+
+# 5. Export CSV
+curl https://ai-lead-scoring.onrender.com/results/export/ -o results.csv
+```
+
+**PowerShell Testing:**
+```powershell
+# Run the PowerShell test script
+.\test_deployed_api.ps1
 ```
 
 ## 🏗️ Architecture
